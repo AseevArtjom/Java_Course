@@ -58,5 +58,25 @@ public class WrapperTest {
 
         Double d1 = 0.0;
         Double d2 = 2.1;
+
+        Double nanValue = d2 / d1;
+        Double infinityValue = d1 / d1;
+        System.out.println(nanValue);
+        System.out.println(infinityValue);
+
+        if(nanValue.isNaN()){
+            System.out.println("Variable {nanValue} = NaN");
+        }
+        if(infinityValue.isInfinite()){
+            System.out.println("Varialbe {infinityValue} = infinity");
+        }
+
+        Long e1 = (long)120;
+        Long e2 = (long)120;
+        System.out.println(e1 == e2);
+
+        e1 = (long)1200;
+        e2 = (long)1200;
+        System.out.println(e1 == e2);
     }
 }
