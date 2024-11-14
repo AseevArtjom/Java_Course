@@ -3,47 +3,38 @@ package com.company.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bank
-{
+public class Bank {
     private List<ATM> ATMS;
-    private int ATMSCount;
 
-    public Bank(){
-        ATMS = new ArrayList<>();
-        ATMSCount = 0;
+    public Bank() {
+        this.ATMS = new ArrayList<>();
     }
 
-    public void Initialize(int atmscount,int cash){
-        for (int i = 0; i < atmscount; i++) {
-            ATMS.add(new ATM(cash));
-        }
-        this.ATMSCount = ATMS.size();
-    }
-
-    public int getTotalCash(){
-        int total = 0;
-        for (ATM atm : ATMS){
-            total += atm.getCash();
-        }
-        return total;
-    }
-
-    public void loadCashToATMByIndex(int index,int amount){
-        if(index >= 0 && index < ATMS.size() && amount > 0){
-            ATMS.get(index).loadCash(amount);
+    public void initialize(int atmCount) {
+        for (int i = 0; i < atmCount; i++) {
+            ATMS.add(new ATM());
         }
     }
 
-    public ATM getAtmByIndex(int index){
-        if(index >= 0 && index < ATMS.size()){
+    public void loadCashToATMByIndex(int index, Bills bill, int count) {
+        if (index >= 0 && index < ATMS.size() && count > 0) {
+            ATMS.get(index).loadCash(bill, count);
+        }
+    }
+
+    public int getTotalCash() {
+        return ATMS.stream()
+                .mapToInt(ATM::getTotalCash)
+                .sum();
+    }
+
+    public ATM getAtmByIndex(int index) {
+        if (index >= 0 && index < ATMS.size()) {
             return ATMS.get(index);
         }
         return null;
     }
 
-    public int getATMSCount() {
-        return ATMSCount;
-    }
 
     public List<ATM> getATMS() {
         return ATMS;
