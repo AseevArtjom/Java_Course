@@ -13,7 +13,6 @@ public class Game {
     private final String name;
     private final Genre genre;
     private final Type type;
-
     private Game(String name, Genre genre, Type type) {
         this.name = name;
         this.genre = genre;

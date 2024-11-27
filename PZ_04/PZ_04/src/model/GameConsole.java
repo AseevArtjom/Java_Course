@@ -1,6 +1,6 @@
 package model;
 
-public class GameConsole {
+public class GameConsole implements Powered {
     public enum Brand {
         SONY, MICROSOFT, NINTENDO
     }
@@ -12,9 +12,10 @@ public class GameConsole {
     private final Brand brand;
     private final String serial;
     private String model;
-    private final GamePad firstGamepad;
-    private final GamePad secondGamepad;
+    private GamePad firstGamepad;
+    private GamePad secondGamepad;
     private boolean isOn;
+    private Game activeGame;
 
     public GameConsole(Brand brand, String serial) {
         this.brand = brand;
@@ -22,13 +23,53 @@ public class GameConsole {
         this.firstGamepad = new GamePad(brand, 1, Color.GREEN);
         this.secondGamepad = new GamePad(brand, 2, Color.BLACK);
         this.isOn = false;
+        this.activeGame = null;
     }
+
     public GameConsole(Brand brand, String model, String serial) {
         this(brand, serial);
         this.model = model;
     }
 
-    public class GamePad {
+    @Override
+    public void powerOn() {
+        if (!isOn) {
+            isOn = true;
+            System.out.println("Game console is now ON");
+        }
+    }
+
+    @Override
+    public void powerOff() {
+        if (isOn) {
+            isOn = false;
+            System.out.println("Game console is now OFF");
+        }
+    }
+
+    public void loadGame(Game game) {
+        this.activeGame = game;
+        System.out.println("Game " + game.getName() + " is loading...");
+    }
+
+    public void playGame() {
+        if (activeGame == null) {
+            System.out.println("No active game to play");
+            return;
+        }
+
+        System.out.println("Playing " + activeGame.getName());
+        GamePad[] gamePads = {firstGamepad, secondGamepad};
+        for (GamePad gamePad : gamePads) {
+            if (gamePad.isOn()) {
+                System.out.println("GamePad " + gamePad.getConnectedNumber() +
+                        " charge: " + gamePad.getChargeLevel() + "%");
+                gamePad.reduceCharge(10);
+            }
+        }
+    }
+
+    public class GamePad implements Powered {
         private final Brand brand;
         private final String consoleSerial;
         private final int connectedNumber;
@@ -43,6 +84,39 @@ public class GameConsole {
             this.color = color;
             this.chargeLevel = 100.0;
             this.isOn = false;
+        }
+
+        @Override
+        public void powerOn() {
+            if (!isOn) {
+                isOn = true;
+                System.out.println("GamePad " + connectedNumber + " is now ON.");
+                GameConsole.this.powerOn();
+
+                if (connectedNumber == 2 && !GameConsole.this.firstGamepad.isOn()) {
+                    System.out.println("GamePad 2 is now the primary controller");
+                    swapGamePads();
+                }
+            }
+        }
+
+        @Override
+        public void powerOff() {
+            if (isOn) {
+                isOn = false;
+                System.out.println("GamePad " + connectedNumber + " is now OFF");
+            }
+        }
+
+        public void reduceCharge(double amount) {
+            if (chargeLevel > 0) {
+                chargeLevel -= amount;
+                if (chargeLevel <= 0) {
+                    chargeLevel = 0;
+                    System.out.println("GamePad " + connectedNumber + " is out of charge and turning OFF");
+                    powerOff();
+                }
+            }
         }
 
         public Brand getBrand() {
@@ -65,21 +139,15 @@ public class GameConsole {
             return chargeLevel;
         }
 
-        public void setChargeLevel(double chargeLevel) {
-            if (chargeLevel >= 0 && chargeLevel <= 100) {
-                this.chargeLevel = chargeLevel;
-            } else {
-                System.out.println("Invalid charge level");
-            }
-        }
-
         public boolean isOn() {
             return isOn;
         }
+    }
 
-        public void setOn(boolean isOn) {
-            this.isOn = isOn;
-        }
+    private void swapGamePads() {
+        GamePad temp = firstGamepad;
+        firstGamepad = secondGamepad;
+        secondGamepad = temp;
     }
 
     public Brand getBrand() {
@@ -110,7 +178,7 @@ public class GameConsole {
         return isOn;
     }
 
-    public void setOn(boolean isOn) {
-        this.isOn = isOn;
+    public Game getActiveGame() {
+        return activeGame;
     }
 }
