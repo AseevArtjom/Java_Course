@@ -15,7 +15,5 @@ public class App
         System.out.println("Area rectangle: " + rectangle.calculateArea());
         System.out.println("Area square: " + square.calculateArea());
         System.out.println("Area rhomb: " + rhomb.calculateArea());
-
-        System.out.println(Currency.YEN.getValue());
     }
 }
