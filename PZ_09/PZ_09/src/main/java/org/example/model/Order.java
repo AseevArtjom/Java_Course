@@ -1,9 +1,6 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,11 +8,21 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Order
 {
     private Long Id;
+
+    @NonNull
     private Long ClientId;
+    @NonNull
     private Long StaffId;
+    @NonNull
     private Double TotalCost;
+    @NonNull
     private Date Created;
+
+    public void ToString(){
+        System.out.println(ClientId + " | " + StaffId + " | " + TotalCost + " | " + Created);
+    }
 }

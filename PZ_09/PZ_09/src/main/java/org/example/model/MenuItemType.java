@@ -1,17 +1,20 @@
 package org.example.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class MenuItemType
 {
     private Long Id;
+    @NonNull
     private String Name;
+
+    public void ToString(){
+        System.out.println("Id: " + Id + " | " + Name);
+    }
 }

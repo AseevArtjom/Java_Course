@@ -14,7 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <postgresql.version>42.2.27</postgresql.version>
     <mockito.version>4.6.1</mockito.version>
-    <lombok.version>1.18.24</lombok.version>
   </properties>
 
   <dependencies>
@@ -41,8 +40,8 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
+      <version>1.18.24</version>
       <scope>provided</scope>
     </dependency>
-  </dependencies>
+  </dependencies><build><plugins><plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-compiler-plugin</artifactId><configuration><source>11</source><target>11</target></configuration></plugin></plugins></build>
 </project>

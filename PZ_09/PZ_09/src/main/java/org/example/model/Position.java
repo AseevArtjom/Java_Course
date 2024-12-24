@@ -1,16 +1,20 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
+@Builder
 public class Position
 {
     private Long Id;
+
+    @NonNull
     private String Name;
+
+    public void ToString(){
+        System.out.println(Name);
+    }
 }

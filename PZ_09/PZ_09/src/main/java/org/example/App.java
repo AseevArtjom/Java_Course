@@ -5,6 +5,7 @@ import org.example.dao.clientDAO.ClientDaoImpl;
 import org.example.model.Client;
 import org.example.services.TestDbInitializer;
 import org.example.services.TestInitializer;
+import org.example.services.menu.MenuExecutor;
 
 import java.sql.Date;
 
@@ -17,7 +18,6 @@ public class App
         TestInitializer test = new TestInitializer();
         test.testInitializer();
 
-        ClientDao clientDao = new ClientDaoImpl();
-        clientDao.save(new Client("1234","1234","1234@gmail.com","+123456789",new Date(0),0));
+        MenuExecutor.startMenu();
     }
 }

@@ -1,22 +1,32 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Builder
-public class Client {
+public class Client
+{
     private Long Id;
+
+    @NonNull
     private String FirstName;
+    @NonNull
     private String LastName;
+    @NonNull
     private Date Birth;
+    @NonNull
     private String Phone;
+    @NonNull
     private String Mail;
-    private int Discount;
+    @NonNull
+    private Integer Discount;
+
+    public void ToString(){
+        System.out.println(FirstName + " | " + LastName + " | " + Birth.toString() + " | " + Phone + " | " + Mail + " | " + Discount + "%");
+    }
 }
