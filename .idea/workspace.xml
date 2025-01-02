@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="38357062-6f26-4aac-9762-51be9f81e59c" name="Changes" comment="" />
+    <list default="true" id="38357062-6f26-4aac-9762-51be9f81e59c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/exception/ConnectionDBException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/exception/FileException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/exception/PropertyFileException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/service/ConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/service/MyDbInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/service/PropertyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/service/PropertyReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/service/TestInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/java/org/example/write.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/resources/Init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DZ_10/DZ_10/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/Service/Repository/EventRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/Service/TicketService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/DTO/CustomerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/DTO/EventCreationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/DTO/PlaceDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/DTO/TicketPackDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/Place.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop/src/main/java/model/Ticket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicketShop1/.idea/TicketShop1.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,31 +67,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Артем/IdeaProjects/Java_Course&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Артем/IdeaProjects/Java_Course/DZ_10",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Java_Course" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Java_Course" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,6 +96,7 @@
       <workItem from="1728913309624" duration="53000" />
       <workItem from="1728913528719" duration="105000" />
       <workItem from="1729004593281" duration="35000" />
+      <workItem from="1735769465067" duration="22000" />
     </task>
     <servers />
   </component>
