@@ -1,4 +1,4 @@
-package model;
+package com.shop.Ticket_Shop.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,13 +9,13 @@ import lombok.Data;
 public class Place
 {
     @Id
-    @GeneratedValue
-    @Column(name = "Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 }

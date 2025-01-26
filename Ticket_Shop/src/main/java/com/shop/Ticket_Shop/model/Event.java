@@ -1,31 +1,33 @@
-package model;
+package com.shop.Ticket_Shop.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import model.Place;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Data
 @Table(name = "Events")
+@ToString(exclude = {"tickets"})
+@EqualsAndHashCode(exclude = {"tickets"})
 public class Event
 {
     @Id
     @GeneratedValue
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Event_Date")
+    @Column(name = "event_date")
     private LocalDate event_date;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "PlaceId")
+    @JoinColumn(name = "place_id")
     private Place place;
 
     @OneToMany(mappedBy = "event",cascade = CascadeType.ALL)
