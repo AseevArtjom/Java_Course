@@ -132,7 +132,7 @@ public class GamePublisher
     private static final String NEXT_DAY = "Next day";
 
     public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_RESET = "\u001B[0m";  // Сброс цвета
+    public static final String ANSI_RESET = "\u001B[0m";
 
 
 
@@ -206,7 +206,7 @@ public class GamePublisher
 
     public void showAvailableDriversToTrip(float requiredExperience) {
         System.out.println("Available drivers to trip: ");
-        List<Driver> availableDrivers = driverService.findDriverByIsInTripFalseAndIsHiredTrue();  // Получаем список доступных водителей
+        List<Driver> availableDrivers = driverService.findDriverByIsInTripFalseAndIsHiredTrue();
 
         for (int i = 0; i < availableDrivers.size(); i++) {
             Driver driver = availableDrivers.get(i);
