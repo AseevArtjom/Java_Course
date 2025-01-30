@@ -2,6 +2,7 @@ package com.game.service.DriverService;
 
 import com.game.model.Driver;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface DriverService
@@ -21,4 +22,8 @@ public interface DriverService
     List<Driver> findByIsHiredTrue();
 
     List<Driver> findByIsHiredFalse();
+
+    List<Driver> findDriverByIsInTripFalseAndIsHiredTrue();
+
+    void initializeDrivers() throws IOException;
 }

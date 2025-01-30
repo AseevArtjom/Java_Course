@@ -1,6 +1,7 @@
-package com.game.service;
+package com.game.service.DriverService;
 
 import com.game.model.Driver;
+import com.game.service.TxtFileReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class DriverRandomizer
         String lastName = lastNames.get(random.nextInt(lastNames.size()));
 
         String fullName = firstName + " " + lastName;
-        BigDecimal cash = new BigDecimal(random.nextInt(1000) * 100);
+        Double cash = Math.round(random.nextDouble() * 1000 * 100.0) / 100.0;
         float experience = random.nextInt(16);
 
         return new Driver(fullName, cash, experience);

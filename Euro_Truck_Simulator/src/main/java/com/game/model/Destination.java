@@ -13,24 +13,18 @@ import java.util.UUID;
 @Builder
 public class Destination {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     @GeneratedValue
-    private Integer Id;
+    private Integer id;
 
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "Distance")
-    private Float Distance;
+    @Column(name = "distance")
+    private Float distance;
 
-    public Destination(Float distance){
-        this.Distance = distance;
+    public Destination(String name,Float distance){
+        this.name = name;
+        this.distance = distance;
     }
 }
-
-/*
-    Id SERIAL PRIMARY KEY,
-    FirstName VARCHAR(60),
-    LastName VARCHAR(60),
-    Distance FLOAT
-*/

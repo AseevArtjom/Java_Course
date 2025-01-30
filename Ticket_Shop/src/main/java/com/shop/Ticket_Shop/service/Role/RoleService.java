@@ -1,6 +1,5 @@
 package com.shop.Ticket_Shop.service.Role;
 
-import com.shop.Ticket_Shop.model.Event;
 import com.shop.Ticket_Shop.model.Role;
 
 import java.util.List;
@@ -19,5 +18,5 @@ public interface RoleService
 
     void deleteAll();
 
-    Role findByRole_name(String role_name);
+    Role findByRoleName(String roleName);
 }

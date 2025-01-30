@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Transactional
 public interface RoleRepository extends JpaRepository<Role,Integer>
 {
-    Role findByRole_name(String role_name);
+    Role findByRoleName(String roleName);
 }

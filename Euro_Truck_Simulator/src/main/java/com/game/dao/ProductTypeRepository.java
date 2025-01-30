@@ -11,5 +11,5 @@ import java.util.UUID;
 @Transactional
 public interface ProductTypeRepository extends JpaRepository<ProductType, Integer>
 {
-
+    boolean existsByName(String name);
 }

@@ -36,7 +36,7 @@ public class RoleServiceImpl implements RoleService
     public void deleteAll() { roleRepository.deleteAll(); }
 
     @Override
-    public Role findByRole_name(String role_name) {
-        return roleRepository.findByRole_name(role_name);
+    public Role findByRoleName(String roleName) {
+        return roleRepository.findByRoleName(roleName);
     }
 }

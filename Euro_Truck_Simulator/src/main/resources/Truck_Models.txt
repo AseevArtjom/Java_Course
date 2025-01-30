@@ -1,0 +1,31 @@
+E300
+F800
+XTR500
+CargoMax 9000
+TurboHaul 350
+TitanPro 600
+PowerTruck 220
+HeavyHaul 1500
+RoadMaster 800
+MegaRig 300
+KingCargo 500
+SpeedLiner 240
+UltraTruck 700
+MaxMover 350
+GrandHauler 600
+FreightMaster 400
+SkyCargo 800
+MaxiDrive 500
+PowerMover 1000
+HeavyLoad 1200
+TorqueMaster 350
+MegaHaul 200
+QuickRig 700
+LoadMaster 250
+RoadKing 400
+TitanX 600
+UltraHaul 900
+SuperDrive 300
+CargoKing 1000
+LongHaul 800
+PowerLine 650

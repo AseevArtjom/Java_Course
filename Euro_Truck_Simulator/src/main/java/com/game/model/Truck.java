@@ -14,40 +14,43 @@ import java.util.UUID;
 public class Truck
 {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+    private Integer id;
 
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "IsCrashed")
-    private Boolean IsCrashed;
+    @Column(name = "is_crashed")
+    private Boolean isCrashed = false;
 
-    @Column(name = "IsInTrip")
-    private Boolean IsInTrip;
+    @Column(name = "is_in_trip")
+    private Boolean isInTrip = false;
+
+    @Column(name = "bought")
+    private Boolean bought = false;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "RequestId")
-    private Request Request;
+    @JoinColumn(name = "request_id")
+    private Request request = null;
 
-    @Column(name = "MaxWeight")
-    private int MaxWeight;
+    @Column(name = "max_weight")
+    private Double maxWeight;
 
-    public Truck(String name, Boolean isCrashed, Request request, int maxWeight)
+    public Truck(String name, Request request, Double maxWeight)
     {
-        this.Name = name;
-        this.IsCrashed = isCrashed;
-        this.Request = request;
-        this.MaxWeight = maxWeight;
+        this.name = name;
+        this.request = request;
+        this.maxWeight = maxWeight;
     }
 
+    public Truck(String name, Double maxWeight)
+    {
+        this.name = name;
+        this.maxWeight = maxWeight;
+    }
+
+    public String GetInfo(){
+        return name + ", " + maxWeight + " tons";
+    }
 }
-/*
-    Id           SERIAL PRIMARY KEY,
-    Name         VARCHAR(60),
-    IsCrashed    BOOLEAN,
-    IsInTrip     BOOLEAN,
-    RequestId    INT,
-    MaxWeight INT
-*/

@@ -16,40 +16,38 @@ import java.util.UUID;
 public class Driver
 {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+    private Integer id;
 
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "Cash")
-    private BigDecimal Cash;
+    @Column(name = "cash")
+    private Double cash;
 
-    @Column(name = "IsInTrip")
-    private Boolean IsInTrip = false;
+    @Column(name = "is_in_trip")
+    private Boolean isInTrip = false;
 
-    @Column(name = "Experience")
-    private Float Experience;
+    @Column(name = "experience")
+    private Float experience;
 
-    @Column(name = "IsHired")
+    @Column(name = "is_hired")
     private Boolean isHired = false;
 
-    public Driver(String name, BigDecimal cash, Float experience) {
-        this.Name = name;
-        this.Cash = cash;
-        this.Experience = experience;
+    public Driver(String name, Double cash, Float experience) {
+        this.name = name;
+        this.cash = cash;
+        this.experience = experience;
+        this.isInTrip = false;
+        this.isHired = false;
     }
 
     public String GetInfo(){
-        return Name + " [" + Cash + "$," + Experience + " years" + "]";
+        return name + " [" + cash + "$," + experience + " years" + "]";
+    }
+
+    public void addProfit(Double cash) {
+        this.cash = cash;
     }
 }
-
-/*
-    Id         SERIAL PRIMARY KEY,
-    Name       VARCHAR(60),
-    Cash       money,
-    IsInTrip   BOOLEAN,
-    Experience FLOAT
- */

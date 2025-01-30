@@ -2,6 +2,7 @@ package com.game.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -13,37 +14,65 @@ import java.util.UUID;
 public class Request
 {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+    private Integer id;
 
-    @Column(name = "Weight")
-    private Double Weight;
+    @Column(name = "weight")
+    private Double weight;
 
-    @Column(name = "Required_Experience")
-    private int Required_Experience;
+    @Column(name = "required_experience")
+    private int required_experience;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Destination_Id")
-    private Destination Destination;
+    @Column(name = "profit")
+    private Double profit;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ProductType_Id")
-    private ProductType ProductType;
+    @Column(name = "progress")
+    private Boolean progress = false;
 
-    public Request(Double weight, int required_Experience, Destination destination, ProductType productType){
-        this.Weight = weight;
-        this.Required_Experience = required_Experience;
-        this.Destination = destination;
-        this.ProductType = productType;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "driver_id")
+    private Driver driver = null;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "truck_id")
+    private Truck truck = null;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "destination_id")
+    private Destination destination;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "product_type_id")
+    private ProductType productType;
+
+    @Column(name = "delivery_days")
+    private int deliveryDays;
+
+    @Column(name = "remaining_days")
+    private int remainingDays;
+
+    public void setDeliveryDays(int deliveryDays) {
+        this.deliveryDays = deliveryDays;
+        this.remainingDays = deliveryDays;
+    }
+
+    public void decrementRemainingDays() {
+        if (remainingDays > 0) {
+            remainingDays--;
+        }
+    }
+
+    public String GetInfo(){
+        return destination.getName() + "[" + destination.getDistance() + " km], " + deliveryDays + " days, " + profit + "$, " + weight + " tons, " + productType.getName() + ", " + required_experience + " experience years";
+    }
+
+    public Request(Double weight,int deliveryDays,Double profit ,int required_Experience, Destination destination, ProductType productType){
+        this.weight = weight;
+        this.deliveryDays = deliveryDays;
+        this.profit = profit;
+        this.required_experience = required_Experience;
+        this.destination = destination;
+        this.productType = productType;
     }
 }
-/*
-    Id SERIAL PRIMARY KEY,
-    Weight DECIMAL,
-    Required_Experience INT,
-    Destination_Id INT,
-    ProductType_Id INT,
-    FOREIGN KEY (ProductType_Id) REFERENCES ProductTypes(Id) ON DELETE CASCADE ,
-    FOREIGN KEY (Destination_Id) REFERENCES Destinations(Id) ON DELETE CASCADE
-*/

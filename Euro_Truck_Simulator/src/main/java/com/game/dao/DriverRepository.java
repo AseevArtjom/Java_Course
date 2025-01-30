@@ -14,4 +14,5 @@ public interface DriverRepository extends JpaRepository<Driver,Integer>
 {
     List<Driver> findByIsHiredTrue();
     List<Driver> findByIsHiredFalse();
+    List<Driver> findDriverByIsInTripFalseAndIsHiredTrue();
 }

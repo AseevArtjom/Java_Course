@@ -7,7 +7,6 @@ import com.shop.Ticket_Shop.service.Role.RoleService;
 import com.shop.Ticket_Shop.service.User.UserService;
 import com.shop.Ticket_Shop.service.UserRole.UserRoleService;
 import com.shop.Ticket_Shop.utils.WebUtil;
-import org.apache.catalina.Authenticator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -107,11 +106,11 @@ public class MainController
 
         userService.save(newUser);
 
-        Role userRole = roleService.findByRole_name("USER");
+        Role userRole = roleService.findByRoleName("USER");
 
         if(userRole == null){
             userRole = new Role();
-            userRole.setRole_name("USER");
+            userRole.setRoleName("USER");
             roleService.save(userRole);
         }
 

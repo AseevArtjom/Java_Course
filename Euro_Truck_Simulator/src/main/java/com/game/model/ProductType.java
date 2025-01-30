@@ -5,26 +5,22 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "ProductTypes")
+@Table(name = "Product_Types")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
-public class ProductType
-{
+public class ProductType {
     @Id
-    @Column(name = "Id")
+    @Column(name = "id")
     @GeneratedValue
-    private Integer Id;
+    private Integer id;
 
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "name")
+    private String name;
 
-    public ProductType(String name){
-        this.Name = name;
+    public ProductType(String name)
+    {
+        this.name = name;
     }
 }
-/*
-    Id SERIAL PRIMARY KEY,
-    Name VARCHAR(80)
-*/

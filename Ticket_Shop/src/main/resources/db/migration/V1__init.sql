@@ -18,11 +18,11 @@ CREATE TABLE IF NOT EXISTS public.App_user
 
 CREATE TABLE IF NOT EXISTS User_Role
 (
-    id               SERIAL PRIMARY KEY,
-    app_user_user_id integer,
-    role_role_id     integer,
-    FOREIGN KEY (app_user_user_id) REFERENCES app_user (user_id) ON DELETE CASCADE,
-    FOREIGN KEY (role_role_id) REFERENCES Roles(role_id) ON DELETE CASCADE
+    id      SERIAL PRIMARY KEY,
+    user_id integer,
+    role_id integer,
+    FOREIGN KEY (user_id) REFERENCES app_user (user_id) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES Roles (role_id) ON DELETE CASCADE
 );
 
 

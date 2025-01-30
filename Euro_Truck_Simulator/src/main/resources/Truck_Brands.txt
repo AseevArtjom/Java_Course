@@ -1,0 +1,15 @@
+Volvo
+Mercedes-Benz
+MAN
+Scania
+DAF
+Iveco
+Kenworth
+Peterbilt
+Freightliner
+Mack
+Navistar
+Fuso
+Hino
+Isuzu
+Renault

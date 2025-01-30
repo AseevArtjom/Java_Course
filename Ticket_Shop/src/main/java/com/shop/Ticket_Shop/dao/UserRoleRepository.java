@@ -12,7 +12,6 @@ import java.util.List;
 @Transactional
 public interface UserRoleRepository extends JpaRepository<UserRole,Integer>
 {
-    @Query("Select ur.role.role_name from UserRole ur where ur.user.user_id = ?1")
+    @Query("Select ur.role.roleName from UserRole ur where ur.user.user_id = ?1")
     List<String> getRoleNames(Integer userId);
-
 }

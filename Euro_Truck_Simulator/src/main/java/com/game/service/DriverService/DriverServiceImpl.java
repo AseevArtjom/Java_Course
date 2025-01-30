@@ -5,6 +5,7 @@ import com.game.model.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -12,6 +13,9 @@ public class DriverServiceImpl implements DriverService
 {
     @Autowired
     private DriverRepository driverRepository;
+
+    @Autowired
+    private DriverRandomizer driverRandomizer;
 
     @Override
     public void save(Driver driver) { driverRepository.save(driver); }
@@ -42,5 +46,20 @@ public class DriverServiceImpl implements DriverService
     @Override
     public List<Driver> findByIsHiredFalse() {
         return driverRepository.findByIsHiredFalse();
+    }
+
+    @Override
+    public List<Driver> findDriverByIsInTripFalseAndIsHiredTrue() {
+        return driverRepository.findDriverByIsInTripFalseAndIsHiredTrue();
+    }
+
+    public void initializeDrivers() throws IOException {
+        List<Driver> driversInDb = driverRepository.findAll();
+        if (driversInDb.isEmpty()) {
+            for (int i = 0; i < 5; i++) {
+                Driver newDriver = driverRandomizer.generateRandomDriver();
+                driverRepository.save(newDriver);
+            }
+        }
     }
 }

@@ -11,5 +11,5 @@ import java.util.UUID;
 @Transactional
 public interface DestinationRepository extends JpaRepository<Destination, Integer>
 {
-
+    boolean existsByName(String name);
 }
